@@ -17,7 +17,8 @@ const generate = (message) => {
     display = display.map((letter, i) => {
       if (!letter.complete) {
         letter.char = getRandomChar();
-        letter.col = randomHex();
+        letter.col = letter.char === '_' ? 'FFFFFF' : randomHex();
+        console.log({char: letter.char, col: letter.col})
         letter.complete = letter.char === message[i];
       }
       return {...letter};
