@@ -30,7 +30,7 @@ input, button {
   padding: 7px 12px;
 }
 
-.btn.start:hover {
+.btn.start:not(:disabled):hover {
   background-color: #0091da;
 }
 

@@ -1,6 +1,6 @@
-const sneakerizer = document.querySelector(".scrambler");
+const scrambler = document.querySelector(".scrambler");
 const input = document.querySelector(".user-input");
-const button = document.querySelector(".btn.start");
+const startButton = document.querySelector(".btn.start");
 const thumbsup = document.querySelector(".thumbs-up");
 
 const specialChars = '#*~%&@£$,.":;!?()-+=___';
@@ -18,12 +18,11 @@ const generate = (message) => {
       if (!letter.complete) {
         letter.char = getRandomChar();
         letter.col = letter.char === '_' ? 'FFFFFF' : randomHex();
-        console.log({char: letter.char, col: letter.col})
         letter.complete = letter.char === message[i];
       }
       return {...letter};
     });
-    sneakerizer.innerHTML = display.map(letter =>`<span style="color:#${letter.col}">${letter.char}</span>`).join('');
+    scrambler.innerHTML = display.map(letter =>`<span style="color:#${letter.col}">${letter.char}</span>`).join('');
     const allComplete = display.every(letter => letter.complete);
     if (allComplete) {
       clearInterval(timer);
@@ -34,13 +33,13 @@ const generate = (message) => {
 
 const completed = () => {
   thumbsup.classList.add('completed');
-  button.disabled = false;
+  startButton.disabled = false;
 }
 
 const init = () => {
   thumbsup.classList.remove('completed');
-  button.disabled = true;
-  sneakerizer.innerHTML = '';
+  startButton.disabled = true;
+  scrambler.innerHTML = '';
 }
 
 const getRandomChar = () => {
@@ -57,7 +56,8 @@ const randomNum = n => Math.floor(Math.random() * Math.floor(n));
 
 const randomChar = n => Math.random().toString(n);
 
-button.addEventListener('click', () => {
+startButton.addEventListener('click', (e) => {
+  if (!input.value) return;
   const inputString = input.value.replace(/ /g, "_");
   const message = Array.from(inputString);
   generate(message);
