@@ -15,6 +15,11 @@ body {
   box-shadow: 0 15px 15px -15px #00000066;
 }
 
+h3 {
+  color: #00aaff;
+  text-shadow: 0 2px 5px rgb(204, 204, 204);
+}
+
 input, button {
   padding: 5px;
   font-size: 1rem;
