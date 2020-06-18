@@ -3,8 +3,10 @@ body {
   box-sizing: border-box;
   margin: 1rem;
   background-color: #f9f9f9;
-  font-family: 'Anonymous Pro', monospace;
-} 
+  /* font-family: 'Anonymous Pro', monospace; */
+  /* font-family: 'Ultra', monospace; */
+  font-family: 'Roboto Mono', monospace;
+}
 
 .container {
   width: fit-content;
@@ -33,6 +35,8 @@ input, button {
   color: white;
   border: 0;
   padding: 7px 12px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 .btn.start:not(:disabled):hover {
@@ -40,6 +44,8 @@ input, button {
 }
 
 .btn.start:disabled {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
   cursor: not-allowed;
 }
 
