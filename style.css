@@ -29,6 +29,7 @@ h3 {
 input, button {
   padding: 5px;
   font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
 }
 
 input {
@@ -81,6 +82,4 @@ input {
 
 .scrambler {
   text-decoration: none;
-  /* box-shadow: inset 0 -3px 0 black;
-	padding-bottom: -3px; */
 }
